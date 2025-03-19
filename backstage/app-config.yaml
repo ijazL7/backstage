@@ -83,6 +83,7 @@ catalog:
         catalogPath: /*/*/*/*/*/catalog-config.yaml #default value
         filters:
           branch: main
+          repository: 'backstage' # Regex
         # filters: # optional
         #   projectKey: '^apis-.*$' # optional; RegExp
         #   repoSlug: '^service-.*$' # optional; RegExp
