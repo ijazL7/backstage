@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: example3
+  description: A service named example3 in the current project.
+  tags:
+    - kafka
+  links:
+    - url: https://example.com/user
+      title: Examples Users
+      icon: user
+    - url: https://example.com/group
+      title: Example Group
+      icon: group
+    - url: https://example.com/cloud
+      title: Link with Cloud Icon
+      icon: cloud
+    - url: https://example.com/dashboard
+      title: Dashboard
+      icon: dashboard
+  business_unit: Group2
+  organization: Group2
+  cluster: cluster1
+  env: dev2
+  region: eus2
+  wildcard_ingress_dns: .example3.com
+spec:
+  type: service
+  owner: user:user
+  system: delivery-system
+  lifecycle: production
+  consumesApis: ['component:example1']

@@ -1,0 +1,226 @@
+example2:
+  cache:
+    cache2k:
+      keyPrefix: DRT_INMEMO_CACHE_EXP1
+      caches:
+        product-details:
+          entry-capacity: 50000
+          key-prefix: DET_DEV1_axc
+          redis-ttl: 15
+          redis-ttl-in-seconds: 900
+        store-location:
+          expiration-time-in-mins: 10
+          expiration-time-in-seconds: 600
+          key-prefix: DRT_EXP1_store_location
+          redis-ttl: 15
+          redis-ttl-in-seconds: 900
+        delivery-options:
+          expiration-time-in-mins: 10
+          expiration-time-in-seconds: 600
+          entry-capacity: 5000
+          key-prefix: DRT_EXP1_delivery_options
+          redis-ttl: 15
+          redis-ttl-in-seconds: 900
+          allow-null-values: true
+        static-product-details:
+          key-prefix: DRT_EXP1_product
+          redis-ttl: 15
+          redis-ttl-in-seconds: 900
+        user-profile:
+          key-prefix: DRT_EXP1_user_profile
+          allow-null-values: false
+    redis:
+      enabled: true
+      keyPrefix: CNC::DEV
+
+example-data:
+  config:
+    mirrorEnabled : true
+spring:
+  cloud:
+    bus:
+      destination: example21.Hub.Client.Update_Dev
+      # disable config hub event handling
+      # Used pooling solution for check changes on config hub
+      enabled: false
+      trace:
+        enabled: true
+    stream:
+      bindings:
+        springCloudBusInput:
+          destination: example21.Hub.Client.Update_Dev
+        springCloudBusOutput:
+          destination: example21.Hub.Client.Update_Dev
+      kafka:
+        binder:
+          brokers:
+            - abc-12sv.eastus2.example21.confluent.cloud:9093
+          configuration:
+            “[sasl.jaas.config]“: org.apache.kafka.common.security.plain.PlainLoginModule required username="sfafadfaf" password="daddsvsdvsdgsdst%avdvxfbdfbdfbdbdb";
+  data:
+    redis:
+#     host: <asasasdqaaadvdksredsdsis02.eastus.csdsdcsdc.cache.example21.net>
+      port: 20000
+#     password: <secret>
+      ssl:
+        enabled: true
+      lettuce:
+        pool:
+          enabled: true
+          max-active: 32
+          max-idle: 8
+          min-idle: 0
+          max-wait: 50ms
+management:
+  health:
+    redis:
+      enabled: false
+
+integration:
+  self:
+    url: https://test-service-expenv1.lower.internal.example21.com/test-service/v1
+  example21-graph:
+    url: http://test-expenv1.lower.internal.example21.com/test/graphql
+    access-token:
+  example21-service:
+    url: http://test-qa4.lower.internal.example21.com
+    optimizePromoServiceCallsEnabled: false
+    intervalBetweenPromoServiceCalls: 300
+  test-service:
+    url: http://test-example21-service-qa1.eus1-omni-devqa.internalexample21.com/
+  tax-service:
+    url: https://test-service-dev1.lower.internal.example21.com/test-service/v1/
+  example21-tools:
+    project-id: example21-qa1
+  test-service:
+    url: http://test-service-qa1.eus1-omni-devqa.internalexample21.com
+  test-service:
+    url: https://example21-service-qa4.lower.internal.test.com
+  -availability-service:
+    url: https://test-qa1.lower.internal.example21.com
+  test-service:
+    url: https://test-service-qa1.lower.internal.example21.com/
+    securityHeaderName: example21-cnc-ps-sandbox
+    securityHeaderValue: asdascadfafdafcafadsasdasd
+    pending-authorization:
+      securityHeaderName: example21-offline-auth-ps-sandbox
+      securityHeaderValue: asdasafasdavavdfadasdasdasd
+  example21-profile-service:
+    url: https://payment-profile-service-qa1.lower.internal.example21.com
+    data:
+      id: 121223
+      value: dcdcdfsdvsdfdsfdfadfasd==adas
+  example21-reservation:
+    url: https://test-qa1.lower.internal.example21.com/
+  test1-service:
+    url: http://test-qa1.lower.internal.example21.com
+  test-service:
+    url: https://api-qa4.example21.com/v1
+    token: scacasfdasfafafafsasdasdasdaadasvavavavvdvv
+    deviceId: asafasfafadfdvsvsdfdfsffasfasfascacaavav
+  delivery-solutions:
+    url: https://sandbox.api.deliverysolutions.co/api
+    apiKey: qwdqwfsvascvdvdsvdvdadcew
+    caApiKey: asasasvadvadvadvav
+    tenantId: example21_us
+    caTenantId: test_ca
+  example21-service:
+    test-service:
+      url: https://test1.internal.example21.com/test/
+    points-service:
+      url: https://test2-qa.internal.example21.com/test/
+  test-date-service:
+    url: https://test-date-qa1.lower.internal.example21.com/test
+
+postpurchasekafka:
+  bootstrap: pkc-lqzgd.westus2.azure.confluent.cloud:9092
+  saslJaasConfig: org.apache.kafka.common.security.plain.PlainLoginModule required username="xxxxxxxxxxxxxxxx" password="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  # Enable sending messages to kafka
+  produceMessages: true
+  # Enable receiving messages from kafka
+  consumeMessages: true
+  topic:
+    postPurchaseOrderDrop:
+      producer:
+        clientId: example21.Commerce.Integrations.OrderPlaced_expenv1
+    blazemeterOrderDrop:
+      producer:
+        clientId: example21.Commerce.Integrations.OrderPlaced.Blazemeter_dev
+
+deletereservationevent:
+  bootstrap: abc-sasdsd.westus2.example21.confluent.cloud:9092
+  saslJaasConfig: org.apache.kafka.common.security.plain.PlainLoginModule required username="xxxxxxxxxxxxxxxxxx" password="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  topic: DotCom.Commerce.DeleteReservationCall
+  clientId: commerce-delete-reservation-producer_expenv1
+  produceMessages: true
+  enabled: true
+
+fbconversionevent:
+  bootstrap: abc-sasdsd.westus2.example21.confluent.cloud:9092
+  saslJaasConfig: org.apache.kafka.common.security.plain.PlainLoginModule required username="xxxxxxxxxxxxxxxxx" password="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  clientId: example21-facebook-capi-producer_dev
+
+agentauditlog:
+  bootstrap: abc-sasdsd.westus2.example21.confluent.cloud:9092
+  saslJaasConfig: org.apache.kafka.common.security.plain.PlainLoginModule required username="xxxxxxxxxxxxxxxxx" password="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  identificationAlgorithm: https
+  securityProtocol: SBL_SSL
+  saslMechanism: PLAIN
+  useSSL: true
+  autoOffsetReset: earliest
+  enableAutoCommit: false
+  # Enable sending messages to kafka
+  produceMessages: true
+  autoCreate: false
+  enableProducerCreation: false
+  topic:
+    agentAuditLogDrop:
+      topicName: DotCom.Commerce.ProfileOrderComment
+      producer:
+        enabled: true
+        clientId: DotCom.Commerce.ProfileOrderComment_EXPENV1
+
+promo-rollback:
+  bootstrap: abc-sasdsd.westus2.example21.confluent.cloud:9092
+  saslJaasConfig: org.apache.kafka.common.security.plain.PlainLoginModule required username="xxxxxxxxxxxxxxxxx" password="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  topic: example21.PromotionService.Rollback
+  clientId: example21.example21Service.Rollback.DEV1
+  enabled: true
+
+# Specified according to spring boot autoconfiguration
+kafka:
+  # Common Kafka configuration
+  properties:
+    bootstrap.servers: abc-sasdsd.westus2.example21.confluent.cloud:9092
+    sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="xxxxxxxxxxxxxxxxx" password="xxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  producers:
+    # Producers list
+    profile-update:
+      client-id: example21.Loyalty.Profile.CNC.EXPENV1
+      defaultTopic: example21.Loyalty.Profile
+
+lock:
+  enabled: true
+  # REDIS,DEFAULT,NONE. Default value NONE
+  # - REDIS - redis related distributed lock
+  # - DEFAULT - lock on instance only
+  # - NONE - no lock
+  lockType: REDIS
+  lockRegistryKey: EXPENV1_CART_SERVICE_LOCK
+  enableLogging: true
+
+health-check:
+  redis:
+    # Use '-' for disable
+    # Every minute
+    cron: '0 * * * * *'
+
+config-hub:
+  scheduler:
+    # Enable or disable the scheduler for get config from confighub and refresh
+    # application if property on list 'config-hub.properties' changed
+    enabled: true
+    # 15 min
+    initialDelay: 900000
+    # 15 min
+    fixedRate: 900000

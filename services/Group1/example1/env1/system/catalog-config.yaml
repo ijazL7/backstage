@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name:   ecommerce-system
+  description: An example system for services example1 and example2
+  tags:
+    - portal
+spec:
+  owner: guest
+  domain: services
+  type: service

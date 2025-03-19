@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: example2
+  description: A service named example2 in the current project.
+  tags:
+    - java
+    - mongodb
+  links:
+    - url: https://example.com/user
+      title: Examples Users
+      icon: user
+    - url: https://example.com/help
+      title: Support
+      icon: help
+    - url: https://example.com/web
+      title: Website
+      icon: web
+    - url: https://example.com/alert
+      title: Alerts
+      icon: alert 
+  business_unit: Group1
+  organization: Group1
+  cluster: cluster1
+  env: dev1
+  region: eus1
+  wildcard_ingress_dns: .example2.com
+spec:
+  type: service
+  owner: user:guest
+  system: ecommerce-system
+  lifecycle: experimental
