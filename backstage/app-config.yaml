@@ -35,7 +35,7 @@ backend:
 integrations:
   github:
     - host: github.com
-      token: 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
+      token: ${GITHUB_TOKEN}
 
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
@@ -78,24 +78,15 @@ catalog:
   providers:
     github:
       providerId:
-        organization: 'ijazl7'
-      # bitbucket-cloud-provider: # identifies your ingested dataset
-        catalogPath: '/backstage/catalog-info.yaml'  #default value
-        filters:
-          branch: main
-          repository: 'backstage' # Regex
-        # filters: # optional
-        #   projectKey: '^apis-.*$' # optional; RegExp
-        #   repoSlug: '^service-.*$' # optional; RegExp
-        schedule: # same options as in SchedulerServiceTaskScheduleDefinition
-          # supports cron, ISO duration, "human duration" as used in code
-          frequency: { minutes: 1 }
-          # supports ISO duration, "human duration" as used in code
-          timeout: { minutes: 1 }
-        #workspace: litmus7leapstoregit
-#        credentials:
-#          username: ${BITBUCKET_USERNAME}
-#          appPassword: ${BITBUCKET_APP_PASSWORD}
+        organization: 'ijazL7'
+      catalogPath: '/backstage/catalog-info.yaml'  # Ensure correct indentation
+      filters:
+        branch: main
+        repository: 'backstage'  # If your repo name is "backstage"
+      schedule:
+        frequency: { minutes: 1 }
+        timeout: { minutes: 1 }
+
   # import:
   #   entityFilename: catalog-info.yaml
   #   pullRequestBranchName: backstage-integration
