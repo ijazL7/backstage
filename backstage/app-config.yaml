@@ -77,8 +77,8 @@ scaffolder:
 catalog:
   providers:
     github:
-      my-provider:
-        user: ijazL7
+      providerId:
+        organization: 'ijazl7'
       # bitbucket-cloud-provider: # identifies your ingested dataset
         catalogPath: /*/*/*/*/*/catalog-config.yaml #default value
         filters:
