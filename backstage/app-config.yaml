@@ -81,6 +81,8 @@ catalog:
         user: ijazL7
       # bitbucket-cloud-provider: # identifies your ingested dataset
         catalogPath: /*/*/*/*/*/catalog-config.yaml #default value
+        filters:
+          branch: main
         # filters: # optional
         #   projectKey: '^apis-.*$' # optional; RegExp
         #   repoSlug: '^service-.*$' # optional; RegExp
