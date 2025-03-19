@@ -80,7 +80,7 @@ catalog:
       providerId:
         organization: 'ijazl7'
       # bitbucket-cloud-provider: # identifies your ingested dataset
-        catalogPath: /*/*/*/*/*/catalog-config.yaml #default value
+        catalogPath: '/backstage/catalog-info.yaml'  #default value
         filters:
           branch: main
           repository: 'backstage' # Regex
