@@ -33,10 +33,9 @@ backend:
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
-  bitbucketCloud:
-    - username: ijaz4
-      appPassword: ATBBdT7eUaNHCDkS7cdcYWDSnSuy638A00D0
-      providerId: bitbucket-cloud-provider
+  github:
+    - host: github.com
+      token: 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
 
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
@@ -77,7 +76,9 @@ scaffolder:
 
 catalog:
   providers:
-    bitbucketCloud:
+    github:
+      my-provider:
+        user: ijazL7
       # bitbucket-cloud-provider: # identifies your ingested dataset
         catalogPath: /*/*/*/*/*/catalog-config.yaml #default value
         # filters: # optional
@@ -88,7 +89,7 @@ catalog:
           frequency: { minutes: 1 }
           # supports ISO duration, "human duration" as used in code
           timeout: { minutes: 1 }
-        workspace: litmus7leapstoregit
+        #workspace: litmus7leapstoregit
 #        credentials:
 #          username: ${BITBUCKET_USERNAME}
 #          appPassword: ${BITBUCKET_APP_PASSWORD}
