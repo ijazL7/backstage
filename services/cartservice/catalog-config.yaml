@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: my-service2
-  description: Auto-generated catalog file
+  name: cartservice
+  description: Auto-updated catalog file for cartservice
 spec:
   type: service
   lifecycle: production
