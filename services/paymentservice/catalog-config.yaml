@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: my-service
-  description: Auto-generated catalog file
+  name: paymentservice
+  description: Auto-updated catalog file for paymentservice
 spec:
   type: service
   lifecycle: production
