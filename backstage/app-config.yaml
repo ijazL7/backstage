@@ -35,7 +35,7 @@ backend:
 integrations:
   github:
     - host: github.com
-      token: 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
+      token: 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
 
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
@@ -75,20 +75,24 @@ scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 catalog:
+  rules:
+    - allow: [Component, API, Resource, System, Domain, Location]
   providers:
     github:
       # the provider ID can be any camelCase string
       providerId:
         organization: 'ijazL7' # string
-        catalogPath: 'backstage/catalog-info.yaml' # string
-        filters:
-          branch: 'main' # string
-          repository: '.*' # Regex
+        catalogPath: '/services/**/*catalog-config.yaml' # this will search all folders for files that end in .yaml
+        filters: # optional filters
+          branch: 'main' # optional string
+          repository: 'backstage' # optional Regex
         schedule: # same options as in SchedulerServiceTaskScheduleDefinition
           # supports cron, ISO duration, "human duration" as used in code
           frequency: { minutes: 1 }
           # supports ISO duration, "human duration" as used in code
           timeout: { minutes: 1 }
+          
+          
 
   # import:
   #   entityFilename: catalog-info.yaml
