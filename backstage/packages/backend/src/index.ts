@@ -14,6 +14,7 @@ backend.add(import('@backstage/plugin-app-backend'));
 backend.add(import('@backstage/plugin-proxy-backend'));
 backend.add(import('@backstage/plugin-scaffolder-backend'));
 backend.add(import('@backstage/plugin-techdocs-backend'));
+backend.add(import('@backstage/plugin-catalog-backend-module-github'));
 
 // auth plugin
 backend.add(import('@backstage/plugin-auth-backend'));
@@ -57,6 +58,6 @@ backend.add(import('@backstage/plugin-kubernetes-backend'));
 // optional if you want to use AWS SQS instead of HTTP endpoints to receive external events
 // backend.add(import('@backstage/plugin-events-backend-module-aws-sqs'));
 // backend.add(import('@backstage/plugin-events-backend-module-bitbucket-cloud'));
-backend.add(import('@backstage/plugin-catalog-backend-module-bitbucket-cloud'));
+
 
 backend.start();
