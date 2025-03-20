@@ -82,7 +82,7 @@ catalog:
       # the provider ID can be any camelCase string
       providerId:
         organization: 'ijazL7' # string
-        catalogPath: '/services/**/*catalog-config.yaml' # this will search all folders for files that end in .yaml
+        catalogPath: '/**/catalog-config.yaml' # this will search all folders for files that end in .yaml
         filters: # optional filters
           branch: 'main' # optional string
           repository: 'backstage' # optional Regex
