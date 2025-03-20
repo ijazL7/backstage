@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: adservice-api1
+  description: The is an example API named Petstore generated from Swagger.
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: team-c
+  definition:
+    $text: https://github.com/khalidLitmus7/apis_backstage/blob/api_docs/apis/petstore_api.yaml
